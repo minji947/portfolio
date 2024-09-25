@@ -1,0 +1,89 @@
+@charset "utf-8";
+
+#k_list {
+    background: #f1f1f1;
+    padding: 50px 0;
+    box-sizing: border-box;
+}
+.k_category {
+    width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.k_category li {
+    text-align: center;
+}
+.k_category li figure {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: #9D8C90 url(../img/k_icon1.png) no-repeat center;
+}
+.k_category li figure.ico02 {
+    background-image: url(../img/k_icon2.png);
+}
+.k_category li figure.ico03 {
+    background-image: url(../img/k_icon3.png);
+}
+.k_category li figure.ico04 {
+    background-image: url(../img/k_icon4.png);
+}
+.k_category li figure.ico05 {
+    background-image: url(../img/k_icon5.png);
+}
+.k_category h3 {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+/* promo */
+#promo {
+    width: 1440px;
+    margin: 80px auto 50px;
+}
+.title_area {
+   display: flex;
+   justify-content: space-between;
+   align-items: center; /* 세로정렬 */
+   margin-bottom: 50px;
+}
+.title_area h2 {
+    font-size: 36px;
+    font-weight: 500;
+    color: #000;
+}
+.sitemap {
+    display: flex;
+    justify-content: space-between;
+}
+.sitemap li {
+    width: 32%;
+    /* height: 150px; */
+}
+.sitemap li > a {
+    display: block;
+    height: 100%;
+    padding: 45px 0 45px 130px; 
+    background: #E05857 url(../img/bg_call.png) no-repeat 25px center;
+    box-sizing: border-box;
+}
+
+.sitemap .bg_home {
+    background-image: url(../img/bg_home.png);
+    background-color: #404352;
+}
+.sitemap .bg_place {
+    background-image: url(../img/bg_place.png); background-color: #2D3367;
+}
+
+.sitemap li p {
+    font-size: 20px;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 10px;
+}
+.sitemap li span {
+    color: #ffffffa2;
+}
