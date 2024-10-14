@@ -1,5 +1,10 @@
 @charset "utf-8";
 
+/* section 공통 */
+section {
+    margin-bottom: 30px;
+}
+
 /* wrap */
 .wrap {
     max-width: 300px;
@@ -94,13 +99,12 @@ th, td {
 /* portfolio_component*/
 .portfolio_component {
     flex-direction: column;
-    margin-bottom: 120px;
+    margin-bottom: 50px;
 }
 figure.portfolio_tumbnail {
     width: 100%; height: 300px;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
 }
-
 .portfolio_info_area {
     width: 100%;
 }
