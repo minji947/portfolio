@@ -1,0 +1,118 @@
+@charset "utf-8";
+
+/* wrap */
+.wrap {
+    max-width: 300px;
+}
+
+/* table-공통 */
+th, td {
+    padding: 10px 20px;
+    font-family: "Pretendard Variable";
+}
+
+/* background */
+.background .yellow {
+    width: 400px;
+    height: 560px;
+    top: 50%; left: 34%;
+    transform: translateY(-50%);
+    opacity: 0.6;
+}
+.background .green {
+    width: 270px; 
+    height: 180px;
+    top: 5%; right: 2%;
+}
+.background .blue {
+    width: 220px; 
+    height: 210px;
+    top: 20%; left: 5%;
+}
+.background .pink {
+    width: 400px; 
+    height: 380px;
+    top: 60%; left: -10%;
+}
+
+/* click and drag */
+#draggable_area {
+    z-index: -1;
+}
+.dragaItem {
+    z-index: -10;
+}
+.click_obj01 {
+    width: 180px;
+}
+.click_obj02 {
+    width: 180px;
+}
+.click_obj03 {
+    width: 180px;
+}
+
+/* header */
+#btnMenu {
+    width: 36px; height: 40px;
+    background: none;
+    border: none;
+}
+
+/* mainVisual */
+#mainVisual h2 {
+    font-size: 50px;
+}
+#mainVisual .linkBox {
+    flex-direction: column;
+    width: 100%;
+}
+#mainVisual .linkBox a {
+    width: 100%;
+    line-height: 2.8;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-right: none;
+    font-size: 16px;
+}
+
+
+/* profile_area */
+#profile_area .profileContents {
+    flex-direction: column;
+    align-items: center;
+}
+.profileTable {
+    width: 100%;
+}
+.profileTable ul {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    height: auto;
+}
+
+/* portfolio_component*/
+.portfolio_component {
+    flex-direction: column;
+    margin-bottom: 120px;
+}
+figure.portfolio_tumbnail {
+    width: 100%; height: 300px;
+    margin-bottom: 40px;
+}
+
+.portfolio_info_area {
+    width: 100%;
+}
+
+/* contact */
+#contact_area .contact_contents {
+    flex-direction: column;
+}
+
+.contact_contents table {
+    margin-bottom: 80px;
+}
+.contact_contents img {
+    width: 50%;
+}

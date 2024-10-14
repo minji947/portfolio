@@ -1,0 +1,402 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+/* font-family: "Black Han Sans", sans-serif; */
+
+.inner {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+/* header */
+header {
+    height: 120px;
+    margin-bottom: 2px solid #B2FF5F;
+}
+header .inner {
+    position: relative;
+    height: 100%;
+}
+header h1 {
+    position: absolute;
+    top: 50%; left: 0;
+    transform: translateY(-50%);
+    width: 240px;
+}
+header h1 img {
+    width: 100%;
+}
+header form { 
+    position: absolute;
+    top: 50%; left: 55%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+}
+header form img {
+    position: absolute;
+    top: 50%; right: 15px;
+    transform: translateY(-50%);
+    width: 3%;
+    cursor: pointer;
+}
+header input[type="search"] {
+    width: 100%;
+    height: 40px;
+    background: #f2f2f2;
+    border: none;
+    border-radius: 40px;
+    position: relative;
+    padding-left: 20px;
+}
+header input::placeholder {
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.5);
+    padding-left: 10px;
+}
+header .btn_gnb {
+    position: absolute;
+    top: 50%; right: 0;
+    transform: translateY(-50%);
+    width: 30px; height: 30px;
+}
+header .btn_gnb a {
+    display: block;
+}
+header .btn_gnb span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    border-radius: 3px;
+    background: rgba(0, 0, 0, 0.7);
+    margin-bottom: 6px;
+}
+
+/* nav */
+header nav {
+    position: absolute;
+    top: 120px; left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 220px;
+    background: #fff;
+    display: none;
+}
+header nav .depth01 {
+    position: relative;
+    padding: 10px 0;
+}
+header nav .depth01::after {
+    position: absolute;
+    top: 10px; left: 15%;
+    content: '';
+    width: 1px; height: 180px;
+    background: rgba(0, 0, 0, 0.1);
+}
+header nav .depth01 > li {
+    width: 12%;
+    margin-bottom: 30px;
+}
+header nav .depth01 > li > a {
+    display: block;
+    padding: 5px;
+    font-size: 22px;
+    font-weight: 500;
+    text-align: center;
+    border-radius: 20px;
+    transition: all 0.2s;
+}
+header nav .depth01 > li > a:focus {
+    background: #B2FF5F;
+}
+header nav .depth02 {
+    position: absolute;
+    top: 10px; left: 20%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 60%;
+    height: 80%;
+    padding-top: 20px;
+}
+header nav .depth02 > li {
+    width: 40%;
+    margin-bottom: 30px;
+}
+header nav .depth02 > li > a {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.5);
+    transition: 0.1s;
+}
+header nav .depth02 > li > a:hover {
+    color: #000;
+}
+.depth01 .fashion {
+    width: 75%;
+    display: none;
+}
+.depth01 .fashion > li {
+    width: 32%;
+}
+.depth01 .cloth {
+    display: none;
+}
+.depth01 .phone {
+    display: none;
+}
+
+/* .depth01 li:first-child:hover .cloth {
+    display: flex;
+} */
+
+/* main_visual */
+#main_visual {
+    height: 999px;
+    background: url(../img/img_main_visual.png) no-repeat center / cover;
+    position: relative;
+}
+.sns_area {
+    position: absolute;
+    top: 20px; right: 16%;
+    display: flex;
+}
+.sns_area a {
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    transition: all 0.2s;
+}
+.sns_area a + a {
+    margin-left: 15px;
+}
+.sns_area a img {
+    width: 30px;
+    height: 26px;
+}
+.sns_area a:hover {
+    background: #b2ff5fc7;
+}
+.text_area {
+    position: absolute;
+    bottom: 60px; left: 20%;
+}
+.text_area span {
+    display: block;
+    margin-bottom: 10px;
+}
+.text_area .b_title {
+    display: block;
+    font-family: "Black Han Sans", sans-serif;
+    font-size: 90px;
+    font-weight: 400;
+    color: #182e00;
+    margin-bottom: 20px;
+    line-height: 1;
+}
+.text_area .s_text {
+    font-size: 18px;
+    font-weight: 500;
+    color: #2c5500da;
+    margin-bottom: 20px;
+}
+.text_area .s_title {
+    color: #2c5500;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* contents */
+#contents {
+    background: url(../img/bg_pattern.png);
+    border-top: 1px solid transparent;
+    padding: 65px 0;
+}
+
+ /* product_area layout */
+ .product_area {
+    background: #fff;
+    border-radius: 50px;
+    padding: 50px;
+    box-sizing: border-box;
+    box-shadow: #B2FF5F 6px 2px 16px 0px, rgba(255, 255, 255, 0.452) -6px -2px 16px 0px;
+    position: relative;
+    margin-bottom: 60px;
+ }
+ .product_area + .product_area {
+    margin-top: 65px;
+ }
+ .product_area .product_text_area {
+    position: absolute;
+    left: 45%; top: 80px;
+ }
+ .product_area .product_text_area.left {
+    right: auto;
+    left: 6%;
+ }
+ .product_area .product_text_area h3 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #000;
+ }
+ .product_area .product_text_area p {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: rgba(0, 0, 0, 0.6);
+ }
+ .product_area .product_text_area a {
+    display: inline-block;
+    padding: 5px 25px;
+    background: #fff45f;
+    border-radius: 20px;
+    margin-right: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.6);
+    transition: all 0.2s;
+ }
+ .product_area .product_text_area a:hover {
+    background: #ffc423;
+ }
+
+.product_area .product_list {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+.product_area .product_list.reverse {
+    flex-direction: row-reverse;
+}
+.product_area .product_list .product_b {
+    width: 38%;
+}
+.product_area .product_list .product_s {
+    width: 26%;
+}
+.product_area .product_list .product_b > a,
+.product_area .product_list .product_s > a {
+    display: block;
+    overflow: hidden;
+}
+.product_area figure {
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    position: relative;
+}
+.product_area figure img {
+    width: 100%;
+    transition: all 0.2s;
+}
+.product_area .product_b:hover figure > img, 
+.product_area .product_s:hover figure > img {
+    transform: scale(1.3);
+}
+.product_area figure .heart {
+    position: absolute;
+    width: 50px; height: 50px;
+    bottom: 3%; right: 3%;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.product_area .product_info_area {
+    font-size: 24px;
+    font-weight: 500;
+    color: #000;
+    padding: 10px;
+}
+.product_area .product_info_area .info_store {
+    display: block;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+.product_area .product_info_area .info_product_name {
+    display: block;
+    margin-bottom: 10px;
+    text-overflow: ellipsis;
+     overflow: hidden;
+     white-space: nowrap;
+}
+.product_area .product_info_area .info_price {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+.product_area .product_info_area .info_text {
+    font-size: 18px;
+    line-height: 1.5;
+    color: rgba(0, 0, 0, 0.6);
+    height: 50px;
+    word-break: keep-all;
+}
+.product_area:last-child {
+    margin-bottom: 130px;
+}
+
+/* related_promo */
+.related_promo h3 {
+    font-size: 30px;
+    margin: 0 0 60px 60px;
+}
+.related_promo.inner {
+    max-width: 1200px;
+}
+.related_promo .promo_area {
+    display: flex;
+    justify-content: space-between;
+}
+.related_promo .promo_box {
+    width: 48%;
+    background: #fff;
+    margin-bottom: 40px;
+    padding: 40px;
+    box-sizing: border-box;
+    border-radius: 30px;
+    border:#a1ff3c 1px solid;
+    transition: .3s;
+}
+.related_promo .promo_box:hover {
+    box-shadow: #7dc234 6px 2px 16px 0px, rgba(255, 255, 255, 0.452) -6px -2px 16px 0px;
+}
+.related_promo .promo_box a {
+    display: block;
+}
+.related_promo .promo_box figure {
+    margin: 0 auto 20px;
+    width: 100%;
+}
+.related_promo .promo_box figure img {
+    width: 100%;
+}
+.related_promo .promo_box strong {
+    display: block;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+.related_promo .promo_box .text {
+    font-size: 18px;
+    line-height: 1.6;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+/* footer */
+footer {
+    background: #B2FF5F;
+}
+footer {
+    text-align: center;
+    padding: 30px 0;
+    line-height: 2;
+    color: rgba(0, 0, 0, 0.6);
+}
