@@ -40,6 +40,15 @@ th, td {
     top: 60%; left: 8%;
 }
 
+/* profile */
+#profile_area .profileContents {
+    flex-direction: column;
+    align-items: center;
+}
+.profileTable .introduce {
+    font-size: 20px;
+}
+
 /* click and drag */
 #draggable_area {
     z-index: -1;
@@ -49,12 +58,15 @@ th, td {
 }
 .click_obj01 {
     width: 180px;
+    left: 22%;
 }
 .click_obj02 {
     width: 180px;
+    right: 20%;
 }
 .click_obj03 {
     width: 180px;
+    left: 34%;
 }
 
 /* portfolio_component*/
@@ -73,4 +85,15 @@ figure.portfolio_tumbnail {
 .portfolio_info_area {
     width: 90%;
     margin: 0 auto;
+}
+.profileTable .introduce {
+    padding: 25px 0;
+}
+
+/* modal */
+.modalBox {
+}
+.modal_title {
+    font-size:26px;
+    flex: 0.5;
 }

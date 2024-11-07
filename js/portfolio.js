@@ -12,24 +12,57 @@ window.onscroll = function () {
     } else if (scrollHeight < headerHeight) {
         header.classList.remove('drop')
     }
+
+    /* dragItem array */
+    const mainVisual = document.querySelector('#mainVisual')
+    const mainVisualHeight = mainVisual.offsetHeight
+
+    for (let i = 0; i < dragItems.length; i++) {
+        if (scrollHeight >= mainVisualHeight) {
+            dragItems[i].classList.add('array')
+        } else if (scrollHeight < mainVisualHeight) {
+            dragItems[i].classList.remove('array')
+        }
+    }
 }
 
 /* gnb open btn */
 const btnMenuOpen = document.querySelector('#btnMenuOpen')
 const btnMenuClose = document.querySelector('#btnMenuClose')
 const gnb = document.querySelector('#gnb')
+const gnbLists = document.querySelectorAll('#gnb li a')
 
-btnMenuOpen.addEventListener('click', ()=>{
+btnMenuOpen.addEventListener('click', () => {
     gnb.classList.add('open')
     btnMenuOpen.classList.remove('active')
     btnMenuClose.classList.add('active')
     document.body.classList.add('active_gnb')
+    for (let i = 0; i < gnbLists.length; i++) {
+        gnbLists[i].animate(
+            {
+                top: [0, 81 * i + 'px'],
+            },
+            {
+                duration: 500,
+                easing: 'ease',
+                fill: 'forwards'
+            }
+        )
+    }
 })
-btnMenuClose.addEventListener('click', ()=>{
+btnMenuClose.addEventListener('click', () => {
     gnb.classList.remove('open')
     btnMenuOpen.classList.add('active')
     btnMenuClose.classList.remove('active')
     document.body.classList.remove('active_gnb')
+})
+gnbLists.forEach(gnbList => {
+    gnbList.addEventListener('click', () => {
+        gnb.classList.remove('open')
+        btnMenuOpen.classList.add('active')
+        btnMenuClose.classList.remove('active')
+        document.body.classList.remove('active_gnb')
+    })
 })
 
 /* background animation */
@@ -47,7 +80,6 @@ blurBgs.forEach(blurBg => {
             `${random}0% ${random4}0% ${random2}0% ${random3}0%/${random}0% ${random}0% ${random}0% ${random}0%`,
             `${random}0% ${random2}0% ${random}0% ${random3}0%/${random}0% ${random4}0% ${random2}0% ${random2}0%`,
             `${random}0% ${random2}0% ${random4}0% ${random}0%/${random2}0% ${random2}0% ${random}0% ${random}0%`
-            /* leftTop rightTop rightBottom leftBottom */
         ]
     }
     const options = {
@@ -74,7 +106,6 @@ dragItems.forEach(dragItem => {
     container.addEventListener("touchstart", dragStart, false);
     container.addEventListener("touchend", dragEnd, false);
     container.addEventListener("touchmove", drag, false);
-
     container.addEventListener("mousedown", dragStart, false);
     container.addEventListener("mouseup", dragEnd, false);
     container.addEventListener("mousemove", drag, false);
@@ -129,7 +160,6 @@ dragItems.forEach(dragItem => {
 /* web 포트폴리오 component 생성&삽입*/
 const webArea = document.getElementById('portWeb_area')
 const webPortfolioInfos = webPort
-console.log(webPortfolioInfos)
 
 webPortfolioInfos.forEach(webPortfolioInfo => {
     const portfolioComponent =
@@ -137,51 +167,168 @@ webPortfolioInfos.forEach(webPortfolioInfo => {
             <figure class="portfolio_tumbnail"><img src="${webPortfolioInfo.imgSrc}" alt="${webPortfolioInfo.title}" ${webPortfolioInfo.tumbnail_size}></figure>
             <div class="portfolio_info_area">
                 <p class="portfolio_title">${webPortfolioInfo.title}</p>
-                <span class="web_category web_original">${webPortfolioInfo.category}</span>
+                <span class="category web_cate">${webPortfolioInfo.category}</span>
                 <p class="web_desc">${webPortfolioInfo.info}</p>
                 <table>
                     <caption class="blind">${webPortfolioInfo.title}</caption>
-                    <colgroup>
-                    </colgroup>
                     <tr>
-                                <th class="th_stroke_right">타입</th>
-                                <td>${webPortfolioInfo.response}</td>
+                            <th class="th_stroke_right">타입</th>
+                            <td>${webPortfolioInfo.response}</td>
                     </tr>
                     <tr>
-                                <th class="th_stroke_right">사용언어</th>
-                                <td>${webPortfolioInfo.lang}</td>
-                    </tr>
-                </table>
-                <table>
-                    <caption class="blind">${webPortfolioInfo.title}</caption>
-                    <colgroup>
-                    </colgroup>
-                    <tr>
-                                <th class="th_stroke_right">디자인컨셉</th>
-                                <td>${webPortfolioInfo.concept}</td>
+                            <th class="th_stroke_right">사용언어</th>
+                            <td>${webPortfolioInfo.lang}</td>
                     </tr>
                     <tr>
-                                <th class="th_stroke_right">자세히보기</th>
-                                <td>
-                                    <a href="../web/${webPortfolioInfo.btn01_link}" class="btnViewMore ${webPortfolioInfo.btn01}">
-                                        ${webPortfolioInfo.btn01}
-                                    </a> 
-                                    <a href="../web/${webPortfolioInfo.btn02_link}" class="btnViewMore ${webPortfolioInfo.btn02}">
-                                        ${webPortfolioInfo.btn02}
-                                    </a>
-                                    <a href="../web/${webPortfolioInfo.btn03_link}" class="btnViewMore ${webPortfolioInfo.btn03}">
-                                        ${webPortfolioInfo.btn03}
-                                    </a>
-                                    <a target="_blank" href="../web/${webPortfolioInfo.btn04_link}" class="btnViewMore ${webPortfolioInfo.btn04}">
-                                        ${webPortfolioInfo.btn04}
-                                    </a>
-                                </td>
+                            <th class="th_stroke_right">디자인컨셉</th>
+                            <td>${webPortfolioInfo.concept}</td>
+                    </tr>
+                    <tr>
+                            <th class="th_stroke_right">자세히보기</th>
+                            <td>
+                                <a target='_blank' href="${webPortfolioInfo.plan_link}" class="btnViewMore plan ${webPortfolioInfo.plan}">
+                                    ${webPortfolioInfo.plan}
+                                </a> 
+                                <a href="${webPortfolioInfo.btn02_link}" class="btn02 btnViewMore ${webPortfolioInfo.folder} ${webPortfolioInfo.btn02}">
+                                    ${webPortfolioInfo.btn02}
+                                </a>
+                                <a target='_blank' href="${webPortfolioInfo.btn03_link}" class="btnViewMore ${webPortfolioInfo.btn03}">
+                                    ${webPortfolioInfo.btn03}
+                                </a>
+                                <a target="_blank" href="${webPortfolioInfo.btn04_link}" class="btnViewMore ${webPortfolioInfo.btn04}">
+                                    ${webPortfolioInfo.btn04}
+                                </a>
+                            </td>
                     </tr>
                 </table>
             </div>
         </div>`;
     webArea.insertAdjacentHTML('beforeend', portfolioComponent)
+
+    document.querySelector(`.btn02.${webPortfolioInfo.folder}`).addEventListener('click', function () {
+        const modal = document.querySelector('.modalDim')
+        modal.classList.add(webPortfolioInfo.folder)
+
+        if (modal.classList.contains(webPortfolioInfo.folder)) {
+            const wireframeArea = document.querySelector('.wireframe_area')
+            const designSampleArea = document.querySelector('.designSample_area')
+            const wireframeImgs = webPortfolioInfo.wireframe_imgs
+            const designSampleImgs = webPortfolioInfo.designSample_imgs
+
+            /* modal inner contents 삽입 */
+            const modalTitle = document.querySelector('.modal_title')
+            modalTitle.innerText = webPortfolioInfo.title
+            const replaceFigure = document.querySelectorAll('.replaceFigure')
+
+            const wireframeFigure = document.createElement('figure')
+            wireframeFigure.className='replaceFigure'
+            wireframeImgs.forEach(wireframeImg => {
+                wireframeFigure.insertAdjacentHTML('beforeend', `<img src="design/${webPortfolioInfo.folder}/wireframe/${wireframeImg}" alt='${webPortfolioInfo.title} 와이어프레임'>`)
+            })
+            wireframeArea.replaceChild(wireframeFigure, replaceFigure[0])
+
+            const designSampleFigure = document.createElement('figure')
+            designSampleFigure.className='replaceFigure'
+            designSampleImgs.forEach(designSampleImg => {
+                designSampleFigure.insertAdjacentHTML('beforeend', `<img src="design/${webPortfolioInfo.folder}/designSample/${designSampleImg}" alt='${webPortfolioInfo.title} 디자인시안'>`)
+            })
+            designSampleArea.replaceChild(designSampleFigure, replaceFigure[1])
+        } else {
+            return false
+        }
+    })
+
 })
+
+/* design 포트폴리오 component 생성&삽입 */
+const designArea = document.getElementById('portDesign_area')
+const designPortfolioInfos = designPort
+
+
+designPortfolioInfos.forEach(designPortfolioInfo => {
+    const DesignComponent =
+        `<div class="portfolio_component fadeIn">
+            <figure class="portfolio_tumbnail"><img src="${designPortfolioInfo.imgSrc}" alt="${designPortfolioInfo.title}" ${designPortfolioInfo.tumbnail_size}></figure>
+            <div class="portfolio_info_area">
+                <p class="portfolio_title">${designPortfolioInfo.title}</p>
+                <span class="category design_cate">${designPortfolioInfo.category}</span>
+                <p class="web_desc">${designPortfolioInfo.info}</p>
+                <table>
+                    <caption class="blind">${designPortfolioInfo.title}</caption>
+                    <tr>
+                        <th class="th_stroke_right">타입</th>
+                        <td>${designPortfolioInfo.response}</td>
+                    </tr>
+                    <tr>
+                        <th class="th_stroke_right">디자인툴</th>
+                        <td>${designPortfolioInfo.lang}</td>
+                    </tr>
+                    <tr>
+                        <th class="th_stroke_right">디자인컨셉</th>
+                        <td>${designPortfolioInfo.concept}</td>
+                    </tr>
+                    <tr>
+                        <th class="th_stroke_right">자세히보기</th>
+                        <td>
+                            <a target="_blank" href="${designPortfolioInfo.btn01_link}" class="btnViewMore ${designPortfolioInfo.btn01}">
+                                ${designPortfolioInfo.btn01}
+                            </a> 
+                            <a href="${designPortfolioInfo.btn02_link}" class="btn02 btnViewMore ${designPortfolioInfo.btn02} ${designPortfolioInfo.folder}">
+                                ${designPortfolioInfo.btn02}
+                            </a>
+                            <a target='_blank' href="${designPortfolioInfo.btn03_link}" class="btnViewMore ${designPortfolioInfo.btn03}">
+                                ${designPortfolioInfo.btn03}
+                            </a>
+                            <a target="_blank" href="${designPortfolioInfo.btn04_link}" class="btnViewMore ${designPortfolioInfo.btn04}">
+                                ${designPortfolioInfo.btn04}
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>`;
+    designArea.insertAdjacentHTML('beforeend', DesignComponent)
+
+    document.querySelector(`.btn02.${designPortfolioInfo.folder}`).addEventListener('click', function () {
+        const modal = document.querySelector('.modalDim')
+        modal.classList.add(designPortfolioInfo.folder)
+
+        const wireframeArea = document.querySelector('.wireframe_area')
+        const designSampleArea = document.querySelector('.designSample_area')
+        const wireframeImgs = designPortfolioInfo.wireframe_imgs
+        const designSampleImgs = designPortfolioInfo.designSample_imgs
+
+        if (modal.classList.contains(designPortfolioInfo.folder)) {
+            const wireframeArea = document.querySelector('.wireframe_area')
+            const designSampleArea = document.querySelector('.designSample_area')
+            const wireframeImgs = designPortfolioInfo.wireframe_imgs
+            const designSampleImgs = designPortfolioInfo.designSample_imgs
+
+            /* modal inner contents 삽입 */
+            const modalTitle = document.querySelector('.modal_title')
+            modalTitle.innerText = designPortfolioInfo.title
+            const replaceFigure = document.querySelectorAll('.replaceFigure')
+
+            const wireframeFigure = document.createElement('figure')
+            wireframeFigure.className='replaceFigure'
+            wireframeImgs.forEach(wireframeImg => {
+                wireframeFigure.insertAdjacentHTML('beforeend', `<img src="design/${designPortfolioInfo.folder}/wireframe/${wireframeImg}" alt='${designPortfolioInfo.title} 와이어프레임'>`)
+            })
+            wireframeArea.replaceChild(wireframeFigure, replaceFigure[0])
+
+            const designSampleFigure = document.createElement('figure')
+            designSampleFigure.className='replaceFigure'
+            designSampleImgs.forEach(designSampleImg => {
+                designSampleFigure.insertAdjacentHTML('beforeend', `<img src="design/${designPortfolioInfo.folder}/designSample/${designSampleImg}" alt='${designPortfolioInfo.title} 디자인시안'>`)
+            })
+            designSampleArea.replaceChild(designSampleFigure, replaceFigure[1])
+        } else {
+            return false
+        }
+    })
+
+})
+
 
 /* fixed_toTopBtn */
 const btnTop = document.querySelector('.fixed_toTopBtn')
@@ -196,12 +343,12 @@ btnTop.addEventListener('click', () => {
 })
 
 /* scroll fadeIn */
-const animateFade = (entries, obs) => { 
+const animateFade = (entries, obs) => {
     entries.forEach((entry) => {
-        if(entry.isIntersecting) {
+        if (entry.isIntersecting) {
             entry.target.animate(
                 {
-                    opacity: [0,1],
+                    opacity: [0, 1],
                     filter: ['blur(0.4rem)', 'blur(0)'],
                 },
                 {
@@ -210,67 +357,75 @@ const animateFade = (entries, obs) => {
                     fill: 'forwards'
                 }
             )
-            
+
             obs.unobserve(entry.target)
         }
-        
+
     });
 }
 
 const fadeObsever = new IntersectionObserver(animateFade)
 const fadeElements = document.querySelectorAll('.fadeIn')
 
-fadeElements.forEach((fadeElement)=>{
+fadeElements.forEach((fadeElement) => {
     fadeObsever.observe(fadeElement)
 })
 
+/* modal open/close */
+const openModals = document.querySelectorAll('.btn02')
 
-/* design 포트폴리오 component 생성&삽입 */
-/* const designArea = document.getElementById('portDesign_area')
-const designPortfolioInfos = designPort
+openModals.forEach(openModal => {
+    const modal = document.querySelector('.modalDim')
+    openModal.addEventListener('click', (e) => {
+        e.preventDefault()
 
+        document.body.classList.add('active_gnb')
+        modal.classList.add('open')
+        modal.animate({
+            opacity: [0, 1],
+        },
+            {
+                duration: 500,
+                easing: 'ease',
+                fill: 'forwards'
+            })
+    })
+    const closeBtn = document.querySelector('.modalBox button')
+    closeBtn.addEventListener('click', () => {
+        document.body.classList.remove('active_gnb')
+        modal.className='modalDim'
 
-designPortfolioInfos.forEach(designPortfolioInfo => {
-    const DesignComponent =
-        `<div class="portfolio_component">
-            <figure class="portfolio_tumbnail"><img src="${designPortfolioInfo.imgSrc}" alt=""></figure>
-            <div class="portfolio_info_area">
-                <p class="portfolio_title">${designPortfolioInfo.title}</p>
-                <table>
-                    <caption class="blind">${designPortfolioInfo.title}</caption>
-                    <colgroup>
-                        <col width="20%">
-                    </colgroup>
-                    <tr>
-                                <th class="th_stroke_right">타입</th>
-                                <td>${designPortfolioInfo.type}</td>
-                    </tr>
-                    <tr>
-                                <th class="th_stroke_right">디자인컨셉</th>
-                                <td>${designPortfolioInfo.concept}</td>
-                    </tr>
-                    <tr>
-                                <th class="th_stroke_right">반응형 디자인여부</th>
-                                <td>${designPortfolioInfo.response_design}</td>
-                    </tr>
-                    <tr>
-                                <th class="th_stroke_right">설명</th>
-                                <td>${designPortfolioInfo.info}</td>
-                    </tr>
-                    <tr>
-                                <th class="th_stroke_right">자세히보기</th>
-                                <td>
-                                    <a href="../web/${designPortfolioInfo.btn01_link}" class="btnViewMore">
-                                        와이어프레임
-                                    </a> 
-                                    <a href="../web/${designPortfolioInfo.btn02_link}" class="btnViewMore">
-                                        디자인시안
-                                    </a>
-                                </td>
-                    </tr>
-                </table>
-            </div>
-        </div>`;
-    designArea.insertAdjacentHTML('beforeend', DesignComponent)
+        modal.animate({
+            opacity: [1, 0],
+        },
+            {
+                duration: 500,
+                easing: 'ease',
+                fill: 'forwards'
+            })
+        setTimeout(() => {
+            modal.classList.remove('open')
+        }, 500)
+    })
 })
- */
+
+/* modal tap */
+const wireframeArea = document.querySelector('.wireframe_area')
+const designSampleArea = document.querySelector('.designSample_area')
+const tapMenu1 = document.querySelector('.tapMenu1')
+const tapMenu2 = document.querySelector('.tapMenu2')
+
+tapMenu1.addEventListener('click', function (e) {
+    e.preventDefault()
+    this.classList.add('active')
+    document.querySelector('.tapMenu2').classList.remove('active')
+    wireframeArea.classList.add('active')
+    designSampleArea.classList.remove('active')
+})
+tapMenu2.addEventListener('click', function (e) {
+    e.preventDefault()
+    this.classList.add('active')
+    document.querySelector('.tapMenu1').classList.remove('active')
+    wireframeArea.classList.remove('active')
+    designSampleArea.classList.add('active')
+})

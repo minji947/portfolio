@@ -1,0 +1,122 @@
+@charset "utf-8";
+
+/* 공통 서식 */
+h3 {
+    font-size: 34px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+.text_area h4 {
+    font-size: 20px;
+    margin: 60px 0 10px;
+}
+
+.text_area .paragraph {
+    padding-bottom: 20px;
+    border-bottom: dashed 1px rgba(0, 0, 0, .3);
+}
+.text_area .paragraph:last-child {
+    border-bottom: none;
+}
+
+.text_area strong {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+.text_area b {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.text_area p {
+    line-height: 2;
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+
+.text_area .leftStroke {
+    margin: 30px 0;
+    border-left: 3px rgba(0, 0, 0, .2) solid;
+    padding-left: 10px;
+    line-height: 1.6;
+}
+.text_area ul li {
+    position: relative;
+    font-weight: 300;
+    line-height: 1.8;
+    margin: 10px 0 0 20px;
+    font-size: 18px;
+}
+.text_area ul li:last-of-type {
+    margin-bottom: 10px;
+}
+.text_area ul li:before {
+    position: absolute;
+    top: 0; left: -15px;
+    content: '-';
+}
+.text_area ul > p {
+    margin-top: 20px;
+    padding: 5px 10px;
+    background: rgba(0, 0, 0, .1);
+    display: inline-block;
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+.grayText {
+    color: rgba(0, 0, 0, .6);
+    font-size: 14px;
+    font-weight: 500;
+    margin: 5px 0 10px;
+}
+
+figure {
+    overflow-y: auto;
+    width: 40%;
+    height: 100%;
+}
+figure img {max-width: 100%;}
+
+.sideArea {
+    padding: 20px;
+    width: 25%;
+    height: 100%;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+.sideArea h4 {
+    margin-bottom: 10px;
+}
+.sideArea p {
+    font-size: 16px;
+    line-height: 1.6;
+    background: rgba(0, 0, 0, .1);
+    padding: 10px;
+    font-weight: 300;
+}
+.sideArea ul {
+    margin-bottom: 15px;
+}
+
+/* 수업안내 글 서식 */
+
+
+/* postModal 서식 */
+.postModal .text_area a {
+    color: rgba(0, 0, 0, 0.4);
+}
+.postModal .text_area a:hover {
+    color: rgba(0, 0, 0, 0.8);
+    transition: .2s;
+}
+.postModal .text_area a:after {
+    content: '(블로그로 연결)';
+    font-size: 14px;
+}
+.postModal .text_area .paragraph:first-child h4 {
+    margin-top: 0;
+}

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="img/favicon.png" type="image/png">
-    <title>이민지 웹디자인 & 웹퍼블리셔 포트폴리오</title>
+    <title>Minji Lee 웹디자인 & 웹퍼블리셔</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/portfolio.css">
     <link rel="stylesheet" media="screen and (max-width: 768px)" href="css/portfolio_mobile.css">
@@ -36,7 +36,10 @@
             </svg>
         </button>
         <button type="button" id="btnMenuClose" class="btnMenu">
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000">
+                <path
+                    d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+            </svg>
         </button>
 
         <div id="gnb">
@@ -45,7 +48,7 @@
                 <li><a href="#portWeb_area">Web</a></li>
                 <li><a href="#portDesign_area">Design</a></li>
                 <li><a href="#contact_area">Contact</a></li>
-                <li><a href="">Knitting</a></li>
+                <!-- <li><a href="">Knitting</a></li> -->
             </ul>
         </div>
     </header>
@@ -53,7 +56,9 @@
 
     <!-- fixed top button -->
     <button class="fixed_toTopBtn">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000"><path d="M440-240v-368L296-464l-56-56 240-240 240 240-56 56-144-144v368h-80Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000">
+            <path d="M440-240v-368L296-464l-56-56 240-240 240 240-56 56-144-144v368h-80Z" />
+        </svg>
     </button>
 
     <!-- cont_wrap -->
@@ -67,18 +72,18 @@
                 <a href="#contact_area">Contact</a>
             </div>
         </section><!-- //mainVisual -->
+
         <section id="profile_area">
             <h3>Profile</h3>
             <div class="profileContents fadeIn">
                 <figure></figure>
-                <table class="profileTable">
+                <table class="profileTable porofile_small">
                     <caption class="blind">이민지 프로필</caption>
-                    <colgroup>
-                        <col width="20%">
-                    </colgroup>
                     <tbody>
                         <tr>
-                            <th colspan="2">""</th>
+                            <td colspan="2" class="introduce">
+                                " 포기하지 않고 답을 찾는 웹퍼블리셔, 이민지입니다. "
+                            </td>
                         </tr>
                         <tr>
                             <th class="th_stroke_right">Name</th>
@@ -93,8 +98,8 @@
                             <td>뜨개질, 음악/영상콘텐츠 감상, 공연관람, 그림 그리기</td>
                         </tr>
                         <tr>
-                            <th class="th_stroke_right">Skils</th>
-                            <td>
+                            <th class="th_stroke_right" rowspan="2">Skils</th>
+                            <td><b>Language</b>
                                 <ul>
                                     <li>HTML5</li>
                                     <li>CSS3</li>
@@ -102,6 +107,12 @@
                                     <li>Java Script</li>
                                     <li>React</li>
                                     <li>Bootstrap</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td><b>Design</b>
+                                <ul>
                                     <li>Photoshop</li>
                                     <li>Illustrator</li>
                                     <li>Figma</li>
@@ -112,10 +123,12 @@
                 </table>
             </div><!-- profileContents -->
         </section><!-- //profile_area -->
+
         <section id="portWeb_area">
             <h3>Portfolio : Web</h3>
             <!-- portfolio_component : 자바스크립트로 삽입 -->
         </section><!-- //portWeb_area -->
+
         <section id="portDesign_area">
             <h3>Portfolio : Design</h3>
         </section><!-- //portDesign_area -->
@@ -123,11 +136,8 @@
         <section id="contact_area">
             <h3>Conatact</h3>
             <div class="contact_contents fadeIn">
-                <table class="contaxtTable">
+                <table class="contactTable">
                     <caption class="blind">연락정보</caption>
-                    <colgroup>
-                        <col width="20%">
-                    </colgroup>
                     <tbody>
                         <tr>
                             <th class="th_stroke_right">E-Mail</th>
@@ -135,15 +145,15 @@
                         </tr>
                         <tr>
                             <th class="th_stroke_right">카카오톡</th>
-                            <td><a href="open.kakao.com/me/MinjiLee9947">오픈채팅 'Minji Lee'</a></td>
+                            <td><a href="http://open.kakao.com/me/MinjiLee9947">오픈채팅 'Minji Lee'</a></td>
                         </tr>
                         <tr>
-                            <th class="th_stroke_right">Git Hub</th>
+                            <th class="th_stroke_right">GitHub</th>
                             <td><a href="https://github.com/minji947">https://github.com/minji947</a></td>
                         </tr>
                     </tbody>
                 </table>
-                <img src="img/contact_img.png" alt="직접만든 뜨개소품4: 인형옷(햄버거)">
+                <img src="img/contact_img.png" alt="직접만든 뜨개소품4: 미니 대바늘 키링">
             </div>
         </section><!-- //contact_area -->
 
@@ -153,6 +163,32 @@
         </footer>
     </div><!-- //wrap -->
 
+    <!-- modal -->
+    <div class="modalDim">
+        <div class="modalBox">
+            <button class="closeModalBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff">
+                    <path
+                        d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                </svg>
+            </button>
+            <p class="modal_title"></p>
+            <ul>
+                <li class="th_stroke_right tapBtn active tapMenu1"><a href="#">Wireframe</a>
+                    <figure></figure>
+                </li>
+                <li class="tapBtn tapMenu2"><a href="#">Design Sample</a></li>
+            </ul>
+            <ul class="img_area">
+                <li class="wireframe_area active">
+                    <figure class="replaceFigure"></figure>
+                </li>
+                <li class="designSample_area">
+                    <figure class="replaceFigure"></figure>
+                </li>
+            </ul>
+        </div>
+    </div>
 
     <script src="js/portfolio.js" type='module'></script>
 </body>

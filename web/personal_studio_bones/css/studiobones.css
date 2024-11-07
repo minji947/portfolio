@@ -9,27 +9,20 @@
     --notoSerifKr: "Noto Serif KR";
 }
 
-/* 공통 */
+
 body {
     font-family: var(--spoqa);
+    font-weight: 300;
     color: #000;
     word-break: keep-all;
 }
-section {
-    box-sizing: border-box;
-    border-right: 1px solid #000;
-    overflow-y: auto;
-    margin-bottom: 40px;
+::-webkit-scrollbar {
+    width: 3px; height: 3px;
+    border-left: #000 1px solid;
 }
-.box {
-    padding: 50px 50px;
-    border-bottom: 1px solid #000;
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0);
 }
-.box:last-child {
-    border: none;
-}
-a {display: inline-block; padding: 5px 0;}
-
 
 /* 마우스커서 이미지 */
 *:hover {
@@ -48,27 +41,61 @@ span.underline:hover {
     text-decoration-color: #000
 }
 
+/* 스크롤막기 */
+body.scrollBlock {
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+}
+
 /* wrap */
 #wrap {
-    width: 100vw; height: 100vh;
+    width: 100%; height: 100vh;
+    box-sizing: border-box;
+}
+#sectionWrap {
+    height: calc(100% - 40px);
     display: flex;
     flex-direction: row;
+}
+
+/* header */
+header {display: none;}
+
+
+/* 공통 */
+section {
     box-sizing: border-box;
+    border-right: 1px solid #000;
+    overflow-y: auto;
+}
+.box {
+    padding: 50px;
+    border-bottom: 1px solid #000;
+    box-sizing: border-box;
+}
+.box:last-child {
+    border: none;
+}
+a {display: inline-block; padding: 5px 0;}
+
+
+/* snb, classMenu width */
+#snb, #classMenu {
+    width: 380px;
 }
 
 /* snb */
-#snb {
-    width: 380px;
-}
 .title_area h1 {
     font-family: var(--gilda), Arial, "Helvetica Neue", Helvetica, sans-serif;
     font-style: italic;
     font-size: 40px;
     font-weight: 500;
+    word-break: keep-all;
 }
 .title_area h1 span {
     font-family: var(--notoSerifKr);
-    font-weight: 600;
+    font-weight: 400;
     font-size: 14px;
     color: rgba(0, 0, 0, 0.8);
     display: block;
@@ -79,23 +106,24 @@ span.underline:hover {
     flex-wrap: wrap;
     line-height: 1.6;
     font-family: var(--notoSerifKr);
-    font-weight: 500;
     margin-bottom: 30px;
 }
 
 /* sns_area */
 .sns_area {
     display: flex;
-    justify-content: space-between;
+    gap: 20px;
 }
 .sns_area > div > p {
-    font-weight: 500;
+    font-weight: 400;
 }
 .sns_area > div > P > span {
     display: block;
-    font-weight: 400;
     font-size: 14px;
     margin-top: 6px;
+}
+.sns_area > div > P > span:first-child {
+    font-weight: 300;
 }
 .sns_area .contact_area {
     margin-right: 15px;
@@ -126,15 +154,11 @@ span.underline:hover {
 
 
 /* postList */
-.postList li {
+.postList > li {
     line-height: 1.6;
     display: flex;
-    list-style-type: disc;
 }
-.postList a {
-    width: 90%;
-}
-.postList li::before {
+.postList > li::before {
     content: '#';
     font-size: 20px;
     font-weight: 500;
@@ -155,19 +179,19 @@ span.underline:hover {
     font-weight: 500;
     color: rgba(0, 0, 0, 0.8);
 }
-.classMenu_li > a {
+.classMenu_li .classMenu_click {
     width: 100%; height: 100%;
     padding: 30px 30px 30px 80px;
     box-sizing: border-box;
     position: relative;
 }
-.classMenu_li a:before {
+.classMenu_li .classMenu_click:before {
     position: absolute;
     content: '└';
     top: 30px; left: 50px;
     margin-right: 5px;
 }
-.classMenu_li a:hover {
+.classMenu_li .classMenu_click:hover {
     color: #000;
     background: #e0e0e0;
 }
@@ -204,22 +228,22 @@ span.underline:hover {
     background: #000;
 }
 
-/* classInfo */
-.dim {
-    position: absolute;
+/* classModal */
+.modal {
+    position: fixed;
     z-index: 10;
-    inset: 0;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    display: none;
+}
+.dim {
+    width: 100%; height: 100%;
     background: rgba(0, 0, 0, .3);
-    display: none;
 }
-.dim.open {
-    display: block;
-}
-.classInfo {
-    display: none;
+.classModal , .postModal {
     border: 1px solid #000;
     box-shadow: 0 0 10px rgba(0, 0, 0, .2);
-    width: 1200px; height: 700px;
+    width: 90%; height: 90%;
     padding: 50px;
     box-sizing: border-box;
     background: #fff;
@@ -228,98 +252,53 @@ span.underline:hover {
     transform: translate(-50%, -50%);
     z-index: 10;
 }
-.classInfo.openInfo {
-    display: block;
-}
 .btnPopClose {
     position: absolute;
     top: 20px; right: 20px;
     background: none; border: none;
+    z-index: 2;
 }
 .btnPopClose:hover {
     background: rgba(0, 0, 0, .1);
 }
 
-/* 수업 안내글 서식 */
-.classInfo h3 {
-    font-size: 34px;
-    font-weight: 600;
-    margin-bottom: 30px;
-}
-.classInfo_area {
+/* classModal_area */
+.classModal_area {
     height: 90%;
+    padding-bottom: 30px;
     display: flex;
     align-items: center;
+    box-sizing: border-box;
 }
-.classInfo_area .text_area {
-    height: 500px;
+.classModal_area .text_area {
+    height: 100%;
     overflow-y: auto;
     width: 60%;
     padding: 0 40px;
+    box-sizing: border-box;
 }
-.text_area b {
-    display: inline-block;
+/* postModal_area */
+.postModal_area {
+    height: 90%;
+    padding-bottom: 30px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    gap: 40px;
+}
+.postModal figure {
+    height: 100%;
+}
+.postModal_area figure img {
+    height: 95%;
+}
+.postModal_area .text_area {
+    height: 100%;
+    overflow-y: auto;
+    width: 50%;
+    box-sizing: border-box;
     font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 20px;
 }
-.text_area h4 {
-    font-size: 18px;
-    margin: 40px 0 10px;
-}
-.text_area ul, .text_area p.leftStroke {
-    margin: 20px 0;
-    border-left: 3px rgba(0, 0, 0, .2) solid;
-    font-weight: 600;
-    padding-left: 10px;
-    line-height: 1.6;
-}
-.text_area p.leftStroke {
-    font-weight: 400;
-}
-.text_area ul li {
-    position: relative;
-    font-weight: 400;
-    line-height: 1.6;
-    margin: 10px 0 0 20px;
-}
-.text_area ul li:before {
-    position: absolute;
-    top: 0; left: -15px;
-    content: '-';
-}
-.text_area p {
-    line-height: 1.6;
-    margin-bottom: 20px;
-    font-weight: 400;
-}
-.text_area .grayText {
-    color: rgba(0, 0, 0, .6);
-    width: 90%;
-    margin-left: 20px;
-    font-size: 14px;
-    font-weight: 500;
-    margin-top: 20px;
-}
-figure {
-    width: 40%;
-}
-figure img {max-width: 100%;}
-.alert {
-    padding: 20px;
-    width: 20%;
-}
-.alert h4 {
-    margin-bottom: 10px;
-}
-.alert p {
-    font-size: 14px;
-    line-height: 1.6;
-    background: rgba(0, 0, 0, .1);
-    padding: 10px;
-}
-
-
 
 /* img_area */
 #img_area {
@@ -329,7 +308,8 @@ figure img {max-width: 100%;}
 
 /* footer */
 footer {
-    position: fixed;
+    position: relative;
+    z-index: 0;
     bottom: 0; left: 0;
     width: 100%; height: 40px;
     line-height: 40px;

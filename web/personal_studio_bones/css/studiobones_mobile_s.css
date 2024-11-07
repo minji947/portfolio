@@ -1,0 +1,220 @@
+@charset "utf-8";
+
+/* 마우스커서 */
+*:hover {
+    cursor: auto;
+}
+
+/* wrap */
+#wrap {
+    flex-direction: column;
+    height: auto;
+}
+
+/* 공통 */
+section {
+    border-right: none;
+    margin-bottom: 0px;
+    border-bottom: 1px solid #000;
+}
+section .box {
+    padding: 20px 40px;
+}
+
+/* snb, classMenu width */
+#snb, #classMenu {
+    width: 100%;
+}
+
+/* snb */
+#snb {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#snb .box {
+    width: 50%;
+}
+#snb .box:first-child {
+    border-right: 1px solid #000;
+}
+.title_area h1 {
+    font-size: 30px;
+}
+.title_area h1 span {
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+.title_area .title_desc {
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+.title_area .underline {
+    font-size: 14px;
+}
+#snb .box:last-child {
+    width: 100%;
+}
+
+/* sns_area */
+.sns_area {
+    flex-direction: column;
+    justify-content: space-around;
+}
+.sns_area .snsBtn {
+    width: 35px; 
+    height: 35px;
+}
+
+/* classMenu */
+.classMenu_title {
+    padding: 20px 40px;
+}
+h2 {
+    font-size: 24px;
+    font-weight: 800;
+}
+.classMenu_li .classMenu_click {
+    padding: 20px 30px 20px 50px;
+    font-size: 18px;
+}
+.classMenu_li .classMenu_click:before {
+    position: absolute;
+    content: '└';
+    top: 50%; left: 20px;
+    transform: translateY(-50%);
+    margin-right: 5px;
+}
+.classMenu_li .classMenu_click:after {
+    position: absolute;
+    content: url(../images/ico_down_arrow.png);
+    top: 20px; right: 50px;
+    opacity: 0.8;
+    transition: .5s;
+}
+.classMenu_li .classMenu_click:hover {
+    background: #fff;
+}
+.classMenu_li .arrowUp.classMenu_click {
+    color: #000;
+    background: #e0e0e0;
+}
+.classMenu_li .arrowUp.classMenu_click:after {
+    transform: rotate(180deg);
+}
+
+.classMenu_li .modal {
+    position: static;
+    height: auto;
+}
+/* classModal */
+.classModal {
+    border-width: 1px 0 0 0;
+    border-color: rgba(0, 0, 0, 0.4);
+    box-shadow: none;
+    width: 100%; height: auto;
+    padding: 30px;
+    position: static;
+    transform: translate(0,0);
+}
+.btnPopClose {
+    display: none;
+}
+.classModal_area {
+    flex-direction: column;
+    height: auto;
+
+}
+
+/* 수업 안내글 서식 */
+.classModal h3 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+.classModal_area .text_area {
+    height: auto;
+    width: 100%;
+    padding: 20px;
+}
+.text_area ul li {
+    margin-top: 5px;
+}
+figure {
+    width: 100%;
+    height: auto;
+    overflow: initial;
+}
+.classModal_area figure img {
+    height: auto;
+}
+.classModal .sideArea {
+    position: static;
+    padding: 0px;
+    width: 100%;
+    height: auto;
+}
+
+/* postModal 서식 */
+.postModal{
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    padding: 20px;
+}
+.postModal button {
+    right: 10px;
+    display: block;
+}
+.postModal button svg {
+    width: 25px;
+}
+.postModal h3 {
+    width: 90%;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+.postModal_area {
+    height: 100%;
+    overflow-y: auto;
+    padding: 10px;
+    gap: 0;
+}
+.postModal figure {
+    height: 50%;
+    text-align: center;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.postModal .text_area {
+    padding: 0 10px;
+    overflow-x: hidden;
+    height: initial;
+}
+
+.text_area ul li {
+    font-size: 16px;
+}
+.text_area ul p {
+    font-size: 14px;
+}
+
+/* img_area */
+#img_area {
+    width: 100%;
+    height: 100vw;
+    order: -1;
+    border-bottom: 1px solid #000;
+    border-top: none;
+}
+
+/* footer */
+footer {
+    position: static;
+    font-size: 12px;
+    line-height: 1.6;
+    padding: 5px;
+    height: 50px;
+    box-sizing: border-box;
+}

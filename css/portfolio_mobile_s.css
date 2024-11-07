@@ -7,13 +7,14 @@ section {
 
 /* wrap */
 .wrap {
-    max-width: 300px;
+    max-width: 320px;
 }
 
 /* table-공통 */
 th, td {
     padding: 10px 20px;
     font-family: "Pretendard Variable";
+    font-size: 16px;
 }
 
 /* background */
@@ -48,13 +49,29 @@ th, td {
     z-index: -10;
 }
 .click_obj01 {
-    width: 180px;
+    top: 10%;
+    left: 20%;
+    width: 150px;
 }
 .click_obj02 {
-    width: 180px;
+    top: 16%;
+    right: 10%;
+    width: 170px;
 }
 .click_obj03 {
-    width: 180px;
+    left: 20%;
+    top: 28%;
+    width: 150px;
+}
+
+.click_obj01.array {
+    width: 100px;
+}
+.click_obj02.array {
+    width: 100px;
+}
+.click_obj03.array {
+    width: 100px;
 }
 
 /* header */
@@ -81,10 +98,22 @@ th, td {
 }
 
 
+/* section 공통 */
+section h3 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+section h3::before {
+    width: 30px;
+}
+
 /* profile_area */
 #profile_area .profileContents {
     flex-direction: column;
     align-items: center;
+}
+.profileContents figure {
+    width: 100%;
 }
 .profileTable {
     width: 100%;
@@ -105,16 +134,36 @@ figure.portfolio_tumbnail {
     width: 100%; height: 300px;
     margin-bottom: 10px;
 }
+
+
+.portfolio_title {
+    font-size: 26px;
+   }
 .portfolio_info_area {
     width: 100%;
+}
+.portfolio_info_area .btnViewMore {
+    font-size: 14px;
+}
+
+/* modal */
+.modal_title {
+    padding: 30px 20px 10px;
+    font-size: 22px;
+    line-height: 1.6;
+    box-sizing: border-box;
+}
+.modalBox ul .tapBtn a {
+    line-height: 2.5;
+    font-size: 18px;
 }
 
 /* contact */
 #contact_area .contact_contents {
     flex-direction: column;
 }
-
 .contact_contents table {
+    width: 100%;
     margin-bottom: 80px;
 }
 .contact_contents img {

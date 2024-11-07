@@ -1,0 +1,119 @@
+@charset "utf-8";
+
+/* snb, classMenu width */
+#snb,
+#classMenu {
+    width: 50%;
+    margin-bottom: 0;
+}
+
+/* snb */
+#snb .underline {
+    text-decoration: underline 1px rgba(0, 0, 0, 0.2);
+}
+
+/* classModal */
+.dim {
+    height: 100vh;
+    width: 100vw;
+}
+
+.classModal {
+    height: 80%;
+}
+
+/* 수업 안내글 */
+.classModal_area {
+    position: relative;
+    flex-direction: column;
+    align-items: start;
+    box-sizing: border-box;
+}
+.classModal h3 {
+    font-size: 26px;
+}
+
+.classModal_area .text_area {
+    width: 100%;
+    height: 50%;
+    padding-left: 0;
+    box-sizing: border-box;
+}
+
+figure {
+    height: 50%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.classModal_area figure img {
+    width: auto;
+    height: 95%;
+}
+
+/* postModal_area */
+.postModal_area figure {
+    width: 40%;
+}
+
+.postModal_area figure img {
+    max-width: 100%;
+}
+
+.postModal_area .text_area {
+    font-size: 16px;
+}
+
+.sideArea {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 0 0 20px;
+    width: 50%;
+    height: auto;
+    font-size: 14px;
+}
+.sideArea h4 {
+    font-size: 1rem;
+}
+.sideArea ul li {
+    line-height: 1.2;
+}
+
+@media screen and (max-width: 768px) {
+
+    /* wrap */
+    #sectionWrap {
+        height: auto;
+        flex-wrap: wrap;
+    }
+
+    #classMenu {
+        border: none;
+    }
+
+    /* img_area */
+    #img_area {
+        width: 100%;
+        height: 100vw;
+        border-top: 1px solid #000;
+    }
+
+    /* postModal_area */
+    .postModal_area {
+        flex-direction: column;
+    }
+    .postModal_area figure {
+        width: 100%;
+    }
+
+    .postModal_area .text_area {
+        width: 100%;
+    }
+
+    /* footer */
+    footer {
+        position: static;
+    }
+
+}
